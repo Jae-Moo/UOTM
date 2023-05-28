@@ -6,15 +6,15 @@
 We propose a novel generative model using the semi-dual formulation of Unbalanced Optimal Transport (UOT). This approach provides robustness against outliers, stability during training, and fast convergence. Our algorithm is simple, but performs extremely well, achieving FID scores of 2.97 on CIFAR-10 and 5.80 on CelebA-HQ-256.
 Precisely, the semi-dual form of UOT problem can be reduced into following objective:
 
-$$\mathcal{L}_{v_{\phi}, T_{\theta}}=\inf_{v_\phi}\left[ \int_{\mathcal{X}} \Psi_1^* \left( -\inf_{T_\theta} \left[c\left(x,T_\theta(x)\right)-v\left(T_\theta(x)\right)\right] \right) d\mu(x) + \int_{\mathcal{Y}} \Psi^*_2\left(-v(y)\right) d\nu(y) \right],$$
+$\mathcal{L}_{v_{\phi}, T_{\theta}}=\inf_{v_\phi}\left[ \int_{\mathcal{X}} \Psi_1^\* \left( -\inf_{T_\theta} \left[c\left(x,T_\theta(x)\right)-v\left(T_\theta(x)\right)\right] \right) d\mu(x) + \int_{\mathcal{Y}} \Psi^\*_2\left(-v(y)\right) d\nu(y) \right],$
 
 where $v_\phi$ is a discrimiator (potential), and $T_\theta$ is a generator (OT-map).
-Here, $\Psi^*$ should be non-decreasing, differentiable, convex function.
+Here, $\Psi^\*$ should be non-decreasing, differentiable, convex function.
 
 ## Training UOTM ##
 We use the following commands for training UOTM.
-To train with other $\Psi^*$, just simply adjust "phi1" and "phi2" arguments.
-If you want to use $\Psi^*$ other than implemented ones, add your function to the ``select_phi`` in ``utils.py``.
+To train with other $\Psi^\*$, just simply adjust "phi1" and "phi2" arguments.
+If you want to use $\Psi^\*$ other than implemented ones, add your function to the ``select_phi`` in ``utils.py``.
 
 #### Toy ####
 Commands for toy experiments are as follows.
